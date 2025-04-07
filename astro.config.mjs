@@ -7,9 +7,5 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [tailwind()],
   output: 'hybrid',
-  adapter: vercel(
-    {
-      edgeMiddleware: true,
-    }
-  ),
+  adapter: '@astrojs/vercel/serverless',
 });
