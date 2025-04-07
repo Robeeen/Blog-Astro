@@ -4,15 +4,16 @@ import ArticleCard from "../../components/ArticleCard.astro";
 import SearchForm from "../../components/SearchForm.astro";
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
-export const prerender = false;
+
 const query: string | null = Astro.url.searchParams.get('query');
 
 const allBlogArticles: CollectionEntry<'blog'>[] = await getCollection('blog');
 
-const safeQuery = query?.toLowerCase() || "";
+
 
 // Filter articles based on query
 const searchResults = allBlogArticles.filter(article => {
+  const safeQuery = query?.toLowerCase() || "";
   const titleMatch: boolean = article.data.title
     .toLowerCase()
     .includes(safeQuery);
@@ -27,7 +28,6 @@ const searchResults = allBlogArticles.filter(article => {
 
     return titleMatch || bodyMatch || slugMatch
 });
-
 ---
 
 <MainLayout title="Search Results">
