@@ -1,0 +1,56 @@
+{
+	"version": 3,
+	"routes": [
+		{
+			"src": "^/_astro/(.*)$",
+			"headers": {
+				"cache-control": "public, max-age=31536000, immutable"
+			},
+			"continue": true
+		},
+		{
+			"handle": "filesystem"
+		},
+		{
+			"src": "^\\/_image$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/404\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/about\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/api\\/search\\.json\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/articles\\/search\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/articles\\/tag(?:\\/(.*?))?\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/articles\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/articles(?:\\/(.*?))?\\/?$",
+			"dest": "render"
+		},
+		{
+			"src": "^\\/$",
+			"dest": "render"
+		},
+		{
+			"src": "/.*",
+			"dest": "render",
+			"status": 404
+		}
+	]
+}
