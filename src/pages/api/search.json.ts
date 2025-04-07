@@ -25,18 +25,18 @@ export const GET: APIRoute = async ({ url }): Promise<Response> => {
   );
 
   // Filter articles based on query
-  
   const searchResults = allBlogArticles.filter((article) => {
-
-    const safeQuery = query?.toLowerCase() || "";
     const titleMatch: boolean = article.data.title
-      .includes(safeQuery);
+      .toLowerCase()
+      .includes(query!.toLowerCase());
 
     const bodyMatch: boolean = article.body
-      .includes(safeQuery);
+      .toLowerCase()
+      .includes(query!.toLowerCase());
 
     const slugMatch: boolean = article.slug
-      .includes(safeQuery);
+      .toLowerCase()
+      .includes(query!.toLowerCase());
 
     return titleMatch || bodyMatch || slugMatch;
   });
