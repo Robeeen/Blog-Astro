@@ -7,7 +7,5 @@ import vercel from "@astrojs/vercel/serverless";
 export default defineConfig({
   integrations: [tailwind()],
   output: 'server',
-  adapter: vercel({
-    excludeFiles: ['./src/pages/articles/search.astro'],
-  })
+  adapter: vercel(),
 });
