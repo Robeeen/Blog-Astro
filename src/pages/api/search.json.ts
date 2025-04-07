@@ -41,10 +41,10 @@ export const GET: APIRoute = async ({ url }): Promise<Response> => {
   //   return titleMatch || bodyMatch || slugMatch;
   // });
 
-  return new Response(JSON.stringify(searchResults), {
-    status: 200,
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
+  // return new Response(JSON.stringify(searchResults), {
+  //   status: 200,
+  //   headers: {
+  //     'Content-Type': 'application/json',
+  //   },
+  // });
 };
